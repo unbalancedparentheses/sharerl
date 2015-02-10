@@ -1,0 +1,15 @@
+{application, sharerl,
+ [
+  {description,
+   "Whisper Messaging Subsystem v2"},
+  {vsn, "0.1"},
+  {applications,
+    [kernel,
+     stdlib,
+     lager,
+     cowboy
+    ]},
+  {modules, []},
+  {mod, {sharerl, []}}
+ ]
+}.
