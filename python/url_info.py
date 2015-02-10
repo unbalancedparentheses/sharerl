@@ -11,6 +11,3 @@ def info(burl):
     text = article.text
 
     return (bytes(title, 'utf-8'), authors, bytes(text, 'utf-8'))
-
-def a():
-    return "hola"
