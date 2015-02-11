@@ -7,6 +7,7 @@ def info(burl):
     article.parse()
 
     title = article.title
+    #TODO: each author in authors needs to be bytes type
     authors = article.authors
     text = article.text
 

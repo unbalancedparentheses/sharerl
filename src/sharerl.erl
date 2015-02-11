@@ -15,6 +15,9 @@ stop() ->
 start(_StartType, _StartArgs) ->
     {ok, Pid} = sharerl_sup:start_link(),
     start_listeners(),
+
+    ets:new(storage, [named_table, public]),
+
     {ok, Pid}.
 
 %% @private
@@ -32,7 +35,7 @@ start_listeners() ->
             [
              {<<"/">>, sharerl_root_handler, []},
              {<<"/users">>, sharerl_users_handler, []},
-             {<<"/favorites">>, sharerl_favorites_handler, []}
+             {<<"/favorites/[:uuid]">>, sharerl_favorites_handler, []}
             ]
            }
           ]),
