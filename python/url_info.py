@@ -7,8 +7,11 @@ def info(burl):
     article.parse()
 
     title = article.title
-    #TODO: each author in authors needs to be bytes type
-    authors = article.authors
+
+    authors = []
+    for author in article.authors:
+        authors.append(bytes(author, 'utf-8'))
+
     text = article.text
 
     return (bytes(title, 'utf-8'), authors, bytes(text, 'utf-8'))
