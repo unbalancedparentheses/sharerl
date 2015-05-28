@@ -13,4 +13,10 @@ now_micro() ->
   Mega * 1000000 * 1000000 + Sec * 1000000 + Micro.
 
 uuid() ->
-  erlang:list_to_binary(uuid:uuid_to_string(uuid:get_v4())).
+  R1 = uuid:uuid_to_string(uuid:get_v4()),
+  R2 = remove_dash(R1),
+  erlang:list_to_binary(R2).
+
+%% internal
+remove_dash(String) ->
+  re:replace(String, "\-", "", [global,{return,list}]).

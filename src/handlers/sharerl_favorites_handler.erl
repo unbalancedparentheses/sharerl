@@ -57,7 +57,6 @@ delete_resource(Req, State) ->
   {true, Req1, State}.
 
 get_url(Req) ->
-  %%TODO: Answer with 404 if Url not present
   {ok, Body, Req1} = cowboy_req:body(Req),
   #{<<"url">> := Url} = jiffy:decode(Body, [return_maps]),
   {ok, Url, Req1}.
